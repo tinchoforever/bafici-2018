@@ -82,13 +82,13 @@ a.button, button{
     
     
     <a-marker id="marti-marker" preset='custom' type='pattern' url='marti.patt'>
-             <a-video src="#marti" width="4" height="2" position="0 0 0" rotation="-90 180 -180" >
+             <a-video src="#marti" width="2" height="4" position="0 0 0" rotation="-90 180 -180" >
              </a-video>
     </a-marker>
 
 
     <a-marker id="rami-marker" preset='custom' type='pattern' url='rami.patt'>
-             <a-video src="#rami" width="4" height="2" position="0 0 0" rotation="-90 180 -180" >
+             <a-video src="#rami" width="2" height="4" position="0 0 0" rotation="-90 180 -180" >
              </a-video>
     </a-marker>
   	<a-entity camera></a-entity>
@@ -121,7 +121,7 @@ a.button, button{
     </div>
   </body>
   <script>
-    var videos = ["ojo","manito"];
+    var videos = ["marti","rami"];
     var played = [false,false];
 
     function checkOpenYoutube(){
