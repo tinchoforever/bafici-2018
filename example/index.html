@@ -75,20 +75,20 @@ a.button, button{
 
     <a-scene embedded arjs='debugUIEnabled: false;'>
       <a-assets>
-            <video id="marti" webkit-playsinline  src="personaje-marti.mp4">
-            <video id="rami"  webkit-playsinline  src="personaje-ramiro.mp4">
+            <video id="marti" webkit-playsinline loop src="personaje-marti.mp4">
+            <video id="rami"  webkit-playsinline  loop src="personaje-ramiro.mp4">
     </a-assets>  	
 	
     
     
     <a-marker id="marti-marker" preset='custom' type='pattern' url='marti.patt'>
-             <a-video src="#marti" width="2" height="4" position="0 0 0" rotation="-90 180 -180" >
+             <a-video src="#marti" width="4" height="2" position="0 0 0" rotation="-90 180 -180" >
              </a-video>
     </a-marker>
 
 
     <a-marker id="rami-marker" preset='custom' type='pattern' url='rami.patt'>
-             <a-video src="#rami" width="2" height="4" position="0 0 0" rotation="-90 180 -180" >
+             <a-video src="#rami" width="4" height="2" position="0 0 0" rotation="-90 180 -180" >
              </a-video>
     </a-marker>
   	<a-entity camera></a-entity>
@@ -131,9 +131,9 @@ a.button, button{
         }
       }
 
-      var d = document.getElementById('second-wrapper');
-      d.style.visibility='visible';
-      d.style.display='block';
+      // var d = document.getElementById('second-wrapper');
+      // d.style.visibility='visible';
+      // d.style.display='block';
     }
   function start(element) {
     element.parentNode.removeChild(element);
