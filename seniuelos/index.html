@@ -44,6 +44,18 @@ h1{
   align-items: center;
   justify-content: center;
 }
+.second-wrapper{
+  z-index: 300000;
+  background: transparent;
+  height: 50%;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left:0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 div.inner{
   padding:2em;
   text-align: center;
@@ -98,8 +110,8 @@ a.button, button{
     <div id="wrapper" class="wrapper">
       <div class="inner">
         <h1>Señuelos </h1>
-        <h5> Una historia de Ejemplo. </h5>
-        <p> Aceptá permisos de camára, <a href="llaves.pdf" target="_blank">bajate los marcadores </a>, escanealos y descubrí la historia </p>
+        <h5> Una historia de Señuelos. </h5>
+        <p> Aceptá permisos de camára, <a href="llaves.pdf" target="_blank">bajate los marcadores </a>, escanealos y descubrí la historia.x</p>
         <button type="button" onClick="start(this.parentNode.parentNode)">Empezar</button>
         <h6> <small> Con el apoyo de </small> </h6>
         <div class="logos">
@@ -107,31 +119,30 @@ a.button, button{
         </div>
       </div>
     </div>
-    <div id="second-wrapper" class="wrapper hidden">
+    <div id="second-wrapper" class="second-wrapper hidden">
       <div class="inner">
-        <h1> Poderes </h1>
-        <h2> Una historia de poderes </h2>
-        <p> Continua la historia en Youtube</p>
-        <a class="button" href="https://www.youtube.com/watch?v=lIJr5cviQIA">Abrir YouTube!</a>
-        <h6> <small> Con el apoyo de </small> </h6>
-        
+        <h1> Señuelos </h1>
+        <p> Continua la historia en 360</p>
+        <a class="button" href="https://www.youtube.com/watch?v=FAjDqZ2CH7I">Abrir YouTube!</a>
       </div>
     </div>
   </body>
   <script>
     var videos = ["marti","rami"];
     var played = [false,false];
-
+    var youtubeLaps = 3;
+    var lapCount = 0 ;
     function checkOpenYoutube(){
-      for (var i = 0; i < played.length; i++) {
-        if (!played[i]){
-          return;
-        }
+      
+      if (lapCount > youtubeLaps){
+         var d = document.getElementById('second-wrapper');
+         d.style.visibility='visible';
+         d.style.display='block';
       }
-
-      // var d = document.getElementById('second-wrapper');
-      // d.style.visibility='visible';
-      // d.style.display='block';
+      else {
+        lapCount++;
+      }
+     
     }
   function start(element) {
     element.parentNode.removeChild(element);
@@ -141,6 +152,9 @@ a.button, button{
         var v = document.getElementById(id);
         v.play();
         v.pause();
+        v.onended = function(e) {
+                 checkOpenYoutube()
+              };
           (function(vid,id,i){
             document.getElementById(id+ '-marker').addEventListener('marker-found', function(e){ 
                 
