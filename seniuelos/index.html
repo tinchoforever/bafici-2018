@@ -89,8 +89,8 @@ a.button, button{
 
     <a-scene embedded arjs='debugUIEnabled: false;'>
       <a-assets>
-            <video id="marti" webkit-playsinline loop src="piedra.mp4">
-            <video id="rami"  webkit-playsinline  loop src="lagarto.mp4">
+            <video id="marti" webkit-playsinline  src="piedra.mp4">
+            <video id="rami"  webkit-playsinline  src="lagarto.mp4">
     </a-assets>  	
 
     
@@ -130,7 +130,7 @@ a.button, button{
   <script>
     var videos = ["marti","rami"];
     var played = [false,false];
-    var youtubeLaps = 3;
+    var youtubeLaps = 0;
     var lapCount = 0 ;
     function checkOpenYoutube(){
       
@@ -153,6 +153,7 @@ a.button, button{
         v.play();
         v.pause();
         v.onended = function(e) {
+                this.play();
                  checkOpenYoutube()
               };
           (function(vid,id,i){
