@@ -98,7 +98,7 @@ a.button, button{
         <video id="golpes"  webkit-playsinline  src="violencia-remedios.mp4">
         <video id="foto"  webkit-playsinline  src="violencia-pareja.mp3">
         <video id="mancha"  webkit-playsinline  src="mujer_maquillada.mp4">
-        <video id="pareja"  webkit-playsinline  src="rotura_foto_pareja.mp4" >
+        <video id="pareja"  webkit-playsinline  src="rotura_foto_pareja.mp4" loop autoplay >
     </a-assets>   
 
 
@@ -110,12 +110,17 @@ a.button, button{
              
     </a-marker>
      <a-marker id="fotos-marker" preset='custom' type='pattern' url='foto_perfil_audio_pattern-marker.patt'>
-           <a-video src="#foto" width="1" height="2" position="0 0 0" rotation="90 180 0">
+           <a-video src="#fotos" width="1" height="2" position="0 0 0" rotation="90 180 0">
              </a-video>
     </a-marker>
 
    <a-marker id="pareja-marker" preset='custom' type='pattern' url='foto_pareja_pattern-marker-.patt'>
            <a-video src="#pareja" width="1" height="2" position="0 0 0" rotation="90 180 0">
+             </a-video>
+    </a-marker>
+
+    <a-marker id="mancha-marker" preset='custom' type='pattern' url='mancha_sangre_mujer_maquillada.patt'>
+           <a-video src="#mancha" width="1" height="2" position="0 0 0" rotation="90 180 0">
              </a-video>
     </a-marker>
 
@@ -140,7 +145,7 @@ a.button, button{
     <div id="second-wrapper" class="second-wrapper hidden">
       <div class="inner">
         <h1>Te puede pasar a vos</h1>
-        <a class="button" href="https://www.youtube.com/watch?v=9hpRFnvSK88">Abrir YouTube!</a>
+        <img src="final.jpeg"/>
       </div>
     </div>
   </body>
