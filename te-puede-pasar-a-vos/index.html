@@ -101,8 +101,8 @@ a.button, button{
 
 
     <a-marker id="golpes-marker" preset='custom' type='pattern' url='foto_ventana_pattern-marker.patt'>
-            <a-plane material="side: double; color: #EF2D5E; transparent: true; opacity: 0.5"  height="1" width="1" rotation="-90 0 0"></a-plane>
-             <a-video src="#golpes" width="4" height="2" position="0 0 0" rotation="90 180 0">
+           
+             <a-video src="#golpes" width="1" height="2" position="0 0 0" rotation="90 180 0">
              </a-video>
              
     </a-marker>
@@ -131,8 +131,8 @@ a.button, button{
     </div>
   </body>
   <script>
-    var videos = ["mancha", "rompe", "foto", "golpes"];  
-    var played = [false,false,false,false];
+    var videos = ["golpes"];  
+    var played = [false];
     var youtubeLaps = 0;
     var lapCount = 0 ;
     function checkOpenYoutube(){
@@ -150,32 +150,32 @@ a.button, button{
   function start(element) {
     element.parentNode.removeChild(element);
   
-    // for (var i = 0; i < videos.length; i++) {
-    //   var id = videos[i];
-    //     var v = document.getElementById(id);
-    //     v.play();
-    //     v.pause();
-    //     v.onended = function(e) {
-    //             this.play();
-    //              checkOpenYoutube()
-    //           };
-    //       (function(vid,id,i){
-    //         document.getElementById(id+ '-marker').addEventListener('marker-found', function(e){ 
+    for (var i = 0; i < videos.length; i++) {
+      var id = videos[i];
+        var v = document.getElementById(id);
+        v.play();
+        v.pause();
+        v.onended = function(e) {
+                this.play();
+                 checkOpenYoutube()
+              };
+          (function(vid,id,i){
+            document.getElementById(id+ '-marker').addEventListener('marker-found', function(e){ 
                 
-    //               for (var z = 0; z < videos.length; z++) {
-    //                 var id2 = videos[i];
-    //                   var v2 = document.getElementById(id2);
-    //                   v2.play();
-    //                 }
+                  for (var z = 0; z < videos.length; z++) {
+                    var id2 = videos[i];
+                      var v2 = document.getElementById(id2);
+                      v2.play();
+                    }
                
-    //            played[i] = true;
-    //         });
-    //         document.getElementById(id+'-marker').addEventListener('marker-lost', function(e){ 
-    //           // vid.pause();
+               played[i] = true;
+            });
+            document.getElementById(id+'-marker').addEventListener('marker-lost', function(e){ 
+              // vid.pause();
 
-    //         });
-    //       })(v,id,i);
-    // }  
+            });
+          })(v,id,i);
+    }  
   };
   
 
