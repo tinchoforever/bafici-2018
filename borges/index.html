@@ -94,10 +94,10 @@ a.button, button{
   <body style='margin : 0px; overflow: hidden;'>
    
 
-    <a-scene embedded arjs='debugUIEnabled: false;'>
+    <a-scene embedded arjs='patternRatio: 0.9; debugUIEnabled: false;'>
       <a-assets>
             <video id="marti" webkit-playsinline  src="borges-1.mp4"></video>
-             <video id="rami" webkit-playsinline  src="borges-1.mp4?a=a"></video>
+             <video id="rami" webkit-playsinline  src="borges-1.mp4"></video>
     </a-assets>  	
  
     
@@ -138,53 +138,7 @@ a.button, button{
     </div>
   </body>
   <script>
-    var videos = ["marti","rami"];  
-    var played = [false,false];
-    var youtubeLaps = 0;
-    var lapCount = 0 ;
-    function checkOpenYoutube(){
-      
-      if (lapCount > youtubeLaps){
-         var d = document.getElementById('second-wrapper');
-         d.style.visibility='visible';
-         d.style.display='block';
-      }
-      else {
-        lapCount++;
-      }
-     
-    }
-  function start(element) {
-    element.parentNode.removeChild(element);
-  
-    for (var i = 0; i < videos.length; i++) {
-      var id = videos[i];
-        var v = document.getElementById(id);
-        v.play();
-        v.pause();
-        v.onended = function(e) {
-                this.play();
-                 checkOpenYoutube()
-              };
-          (function(vid,id,i){
-            document.getElementById(id+ '-marker').addEventListener('marker-found', function(e){ 
-                
-                  for (var z = 0; z < videos.length; z++) {
-                    var id2 = videos[i];
-                      var v2 = document.getElementById(id2);
-                      v2.play();
-                    }
-               
-               played[i] = true;
-            });
-            document.getElementById(id+'-marker').addEventListener('marker-lost', function(e){ 
-              // vid.pause();
-
-            });
-          })(v,id,i);
-    }  
-  };
-  
+   
 
   </script>
 </html>

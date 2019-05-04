@@ -1,0 +1,183 @@
+﻿<!doctype HTML>
+<html>
+<head>
+<title>Taller Historias Inmersivas: El Aleph Invertido </title>
+<meta name="description" content="En el UNQ 2018 construimos historias inmersivas. Disfrutá de 'Asesinos' desde tu teléfono.">
+<meta property="og:url" content="http://tinchoforever.github.io/bafici-2018/asesinos/" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Taller Historias Inmersivas: El Aleph Invertido  " />
+<meta property="og:description" content="En el UNQ construimos historias inmersivas. Disfrutá de ' El Aleph Invertido ' desde tu teléfono." />
+<meta property="og:image" content="https://img.youtube.com/vi/9hpRFnvSK88/hqdefault.jpg" />
+<meta property="og:image:width" content="480">
+<meta property="og:image:height" content="360">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link href="https://fonts.googleapis.com/css?family=Poppins:400,900" rel="stylesheet">
+<script src="https://aframe.io/releases/0.6.1/aframe.min.js"></script>
+<script src="../aframe-gif-shader.js"></script>
+<script src="../aframe-ar.js"> </script>
+<link href="https://fonts.googleapis.com/css?family=Poppins:400,900" rel="stylesheet">
+<style>
+html{
+  font-family: 'Poppins', sans-serif;
+
+}
+.logos{
+      width: 100%;
+}
+.logos img{
+    display: inline-flex;
+    max-width: 85px;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+
+}
+h1{
+  text-transform: uppercase;
+  font-weight: 900;
+}
+.hidden{
+  display: none;
+  visibility: hidden;
+}
+.wrapper {
+  z-index: 300000;
+  background: black;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left:0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.second-wrapper{
+  z-index: 300000;
+  background: transparent;
+  height: 50%;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left:0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+div.inner{
+  padding:2em;
+  text-align: center;
+  color:white;
+}
+a{
+   font-family: 'Poppins', sans-serif;
+   color: white;
+    text-decoration: underline;
+}
+a.button, button{
+  cursor: pointer;
+  font-size: 2em;
+   font-family: 'Poppins', sans-serif;
+   color: white;
+    text-decoration: underline;
+    text-transform: uppercase;
+
+  /*height: 20px;
+    width: 100px;*/
+    margin: auto 0;
+    position: relative;
+}
+#arjsDebugUIContainer, .arjsDebugUIContainer, .a-enter-vr {
+  display: none;
+}
+</style>
+</head>
+  <body style='margin : 0px; overflow: hidden;'>
+<a-scene embedded'>
+
+    <a-assets>
+            <video id="golpes"  webkit-playsinline  src="violencia-remedios.mp4">
+    </a-assets>   
+
+
+
+    <a-marker id="golpes-marker" preset='custom' type='pattern' url='foto_ventana_pattern-marker.patt'>
+            <a-plane material="side: double; color: #EF2D5E; transparent: true; opacity: 0.5"  height="1" width="1" rotation="-90 0 0"></a-plane>
+             <a-video src="#golpes" width="4" height="2" position="0 0 0" rotation="90 180 0">
+             </a-video>
+             
+    </a-marker>
+  
+
+    
+  	<a-entity camera></a-entity>
+    </a-scene>
+    <div id="wrapper" class="wrapper">
+      <div class="inner">
+        <h1>  Te puede pasar a vos </h1>
+        <h5> Instalación AR </h5>
+        <p> Aceptá permisos de camára, <a href="llaves.pdf" target="_blank">bajate los marcadores </a>, escanealos y descubrí la historia </p>
+       <button type="button" onClick="start(this.parentNode.parentNode)">Empezar</button>
+        <!-- <h6> <small> Con el apoyo de </small> </h6>
+         <div class="logos">
+         <img src="logo-cluster.png"> -->
+        </div>
+      </div>
+    </div>
+    <div id="second-wrapper" class="second-wrapper hidden">
+      <div class="inner">
+        <h1>Te puede pasar a vos</h1>
+        <a class="button" href="https://www.youtube.com/watch?v=9hpRFnvSK88">Abrir YouTube!</a>
+      </div>
+    </div>
+  </body>
+  <script>
+    var videos = ["mancha", "rompe", "foto", "golpes"];  
+    var played = [false,false,false,false];
+    var youtubeLaps = 0;
+    var lapCount = 0 ;
+    function checkOpenYoutube(){
+      
+      if (lapCount > youtubeLaps){
+         var d = document.getElementById('second-wrapper');
+         d.style.visibility='visible';
+         d.style.display='block';
+      }
+      else {
+        lapCount++;
+      }
+     
+    }
+  function start(element) {
+    element.parentNode.removeChild(element);
+  
+    // for (var i = 0; i < videos.length; i++) {
+    //   var id = videos[i];
+    //     var v = document.getElementById(id);
+    //     v.play();
+    //     v.pause();
+    //     v.onended = function(e) {
+    //             this.play();
+    //              checkOpenYoutube()
+    //           };
+    //       (function(vid,id,i){
+    //         document.getElementById(id+ '-marker').addEventListener('marker-found', function(e){ 
+                
+    //               for (var z = 0; z < videos.length; z++) {
+    //                 var id2 = videos[i];
+    //                   var v2 = document.getElementById(id2);
+    //                   v2.play();
+    //                 }
+               
+    //            played[i] = true;
+    //         });
+    //         document.getElementById(id+'-marker').addEventListener('marker-lost', function(e){ 
+    //           // vid.pause();
+
+    //         });
+    //       })(v,id,i);
+    // }  
+  };
+  
+
+  </script>
+</html>
