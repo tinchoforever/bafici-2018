@@ -186,10 +186,11 @@ a.button, button{
                   for (var z = 0; z < videos.length; z++) {
                     var id2 = videos[i];
                       var v2 = document.getElementById(id2);
-                      v2.play();
+                      v2.pause();
                     }
-               
-               played[i] = true;
+                var v = document.getElementById(id);
+                v.play();
+                played[i] = true;
             });
             document.getElementById(id+'-marker').addEventListener('marker-lost', function(e){ 
               // vid.pause();
