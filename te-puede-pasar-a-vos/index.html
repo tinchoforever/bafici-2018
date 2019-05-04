@@ -95,7 +95,10 @@ a.button, button{
 <a-scene embedded'>
 
     <a-assets>
-            <video id="golpes"  webkit-playsinline  src="violencia-remedios.mp4">
+        <video id="golpes"  webkit-playsinline  src="violencia-remedios.mp4">
+        <video id="foto"  webkit-playsinline  src="violencia-pareja.mp3">
+        <video id="mancha"  webkit-playsinline  src="mujer_maquillada.mp4">
+        <video id="pareja"  webkit-playsinline  src="rotura_foto_pareja.mp4" loop>
     </a-assets>   
 
 
@@ -106,6 +109,17 @@ a.button, button{
              </a-video>
              
     </a-marker>
+     <a-marker id="fotos-marker" preset='custom' type='pattern' url='foto_perfil_audio_pattern-marker.patt'>
+           <a-video src="#foto" width="1" height="2" position="0 0 0" rotation="90 180 0">
+             </a-video>
+    </a-marker>
+
+   <a-marker id="pareja-marker" preset='custom' type='pattern' url='foto_pareja_pattern-marker-.patt'>
+           <a-video src="#pareja" width="1" height="2" position="0 0 0" rotation="90 180 0">
+             </a-video>
+    </a-marker>
+
+
   
 
     
